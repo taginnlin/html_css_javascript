@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/018fc3331b.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <div class="container">
     <div class="music-player">
@@ -34,13 +36,13 @@
     let song = document.getElementById('song');
     let ctrlIcon = document.getElementById('ctrlIcon');
 
-    song.onloadedmetadata = function() {
+    song.onloadedmetadata = function () {
       progress.max = song.duration;
       progress.value = song.currentTime;
     }
 
     function playPause() {
-      if(ctrlIcon.classList.contains('fa-pause')) {
+      if (ctrlIcon.classList.contains('fa-pause')) {
         song.pause();
         ctrlIcon.classList.remove('fa-pause');
         ctrlIcon.classList.add('fa-play');
@@ -51,14 +53,19 @@
       }
     }
 
-    song.onplay = function() {
+    song.onplay = function () {
       setInterval(() => {
         progress.value = song.currentTime;
       }, 500);
     }
 
-    progress.onchange = function() {
-      if(progress.value >= progress.max - 1) {
+    song.onended = function () {
+      ctrlIcon.classList.remove('fa-pause');
+      ctrlIcon.classList.add('fa-play');
+    }
+
+    progress.onchange = function () {
+      if (progress.value >= progress.max - 1) {
         song.pause();
         song.currentTime = progress.value;
         ctrlIcon.classList.remove('fa-pause');
@@ -72,4 +79,5 @@
     }
   </script>
 </body>
+
 </html>
