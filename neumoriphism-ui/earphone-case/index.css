@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #eee;
+}
+
+.card {
+  position: relative;
+  width: 270px;
+  height: 220px;
+  background-color: #e8e9eb;
+  border-radius: 70px;
+  box-shadow: inset 0px 35px 25px #ffffffe0, inset 10px 0px 25px #0000004b,
+    inset 40px 0px 20px #fff, inset -10px 0px 25px #0000004b,
+    inset -40px 0px 20px #fff, inset 0px 10px 10px #000000e0,
+    inset 0px -15px 25px #00000036, 10px 25px 40px -10px #00000060;
+}
+
+.card .line {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: #b4b2b2;
+  margin-top: 30%;
+}
+
+.line::before,
+.line::after {
+  content: "";
+  position: absolute;
+  width: 5%;
+  height: 2px;
+  background-color: #fff;
+}
+
+.line::before {
+  right: 0;
+}
+
+.card .cavity {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  width: 150px;
+  height: 20px;
+  background: linear-gradient(180deg, #d6d6d6, #fff);
+  border-radius: 200px;
+  margin: auto;
+}
+
+.card .led {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  width: 7px;
+  aspect-ratio: 1;
+  --color: #66f66f;
+  background-color: var(--color);
+  border-radius: 100px;
+  box-shadow: 0 0 6px var(--color);
+  animation: colorChange 2s ease-in-out infinite;
+}
+
+.card .text {
+  text-align: center;
+  margin-top: 70px;
+  color: #00000036;
+  font-weight: bolder;
+}
+
+@keyframes colorChange {
+  0% {
+    --color: #cb0202b1;
+  }
+  50% {
+    --color: #66f66f;
+  }
+  100% {
+    --color: #cb0202b1;
+  }
+}
